@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AppSUS</title>
+    <link rel="stylesheet" href="/css/global.css"> </head>
+<body>
+<div class="navbar">
+    <a href="/">Cadastrar Paciente</a>
+    <a href="/pacientes/lista">Listar Pacientes</a>
+    <a href="/medicos/formulario">Cadastrar Médico</a> <a href="/medicos/lista">Listar Médicos</a>
+    <a href="/consultas/cadastro">Agendar Consulta</a>
+    <a href="/consultas/lista">Listar Consultas</a>
+    <a href="/chamados/cadastro">Registrar Chamado</a>
+    <a href="/chamados/lista">Listar Chamados</a>
+</div>
+
+    <div class="container" style="max-width: 500px;"> <h2>Login no Sistema</h2>
+        <form id="loginForm"> <div class="form-group full-width">
+                <label for="username">Usuário (Username):</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group full-width">
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha" name="senha" required>
+            </div>
+            <button type="submit">Entrar</button>
+            <p id="loginMessage" style="text-align: center; margin-top: 15px; font-weight: bold;"></p>
+        </form>
+    </div>
+    <script>
+        // Exemplo de JS para login (se você tiver uma API de login)
+        // Se for um login tradicional com Spring Security (formLogin), este JS não é necessário.
+        /*
+        document.getElementById('loginForm')?.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const mensagemP = document.getElementById('loginMessage');
+            mensagemP.textContent = 'Autenticando...';
+            // Lógica de fetch para /api/login ou /authenticate ...
+            // fetch('/api/auth/login', { method: 'POST', ... })
+            // .then(...)
+            // .catch(...);
+        });
+        */
+    </script>
+    <script> // Script Navbar Ativa (simplificado para login)
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            if (currentPath === '/login') {
+                document.querySelector('.navbar a[href="/login"]')?.classList.add('active');
+            } else if (currentPath === '/' || currentPath === '/pacientes/cadastro') {
+                 document.querySelector('.navbar a[href="/"]')?.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
